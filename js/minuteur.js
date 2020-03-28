@@ -1,3 +1,13 @@
+var h1=0;
+var m1=0;
+var s1=0;
+
+
+function fermeture(){
+	
+	$("#minuteur_terminee").remove();
+}
+
 f = function(n) {
 
 	var boutton=$("#lancer_minuteur").text();
@@ -47,12 +57,19 @@ f = function(n) {
     			$('#minute').text(59);
     			minute=59;
     			heure=heure-1;
-    			f(60);
+    			f(0);
     		}
     		else
     		{
-    			console.log("finis !");
     			$("#lancer_minuteur").text("Lancer");
+    			$(".minuteur").append("<div id='minuteur_terminee'></div")
+    			$("#minuteur_terminee").append("<div></div").hide().fadeIn(500);
+    			$("#minuteur_terminee").append("<div id='message'></div>").hide().fadeIn(500);
+    			$("#message").append("<p>Temps écoulé !</p>").hide().fadeIn(500);
+
+    			$("#minuteur_terminee").append("<div id='boutton_fermeture'></div>").hide().fadeIn(500);
+    			$("#boutton_fermeture").append("<button onclick='fermeture()' class='fermeture'></button>").hide().fadeIn(500)
+    			h1=0; m1=0; s1=0;
     		}
     	}
     }
@@ -61,9 +78,7 @@ f = function(n) {
 
 $(document).ready(function(){
 
-var h1=0;
-var m1=0;
-var s1=0
+
 
 	$("button").click(function(){
 		 

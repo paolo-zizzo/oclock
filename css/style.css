@@ -1,29 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
+
+.min_chrono{
+
+ background-image: url(../img/fond_chambre.png);
+ background-size: cover;
+ background-attachment: fixed;
+}
 
 *{
 	outline: none;
 }
 
 
+article{
+
+	display: flex;
+	justify-content: center;
+}
+
+.minuteur{
+
+	width: 400px;
+	border-radius: 30px; 
+	height: 700px;
+	background-image: url(../img/telephone.png);
+	background-size:cover;
+	background-position: center center;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+
+
+}
+
+.minuteur .boutton{
+
+	display:flex;
+	flex-direction: column;
+	margin-top: 20%;
+	height: 150px;
+	align-items: center;
+}
+
+#minuteur_terminee{
+
+	margin-top: 5%;
+	background-color: #CD6155;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 20px;
+	font-size: 15px;
+	font-family: 'Lobster', cursive;
+	text-shadow: -1px 0 0 rgba(0, 0, 0, 0.8), 
+             1px 0 0 rgba(0, 0, 0, 0.8),
+             0 -1px 0 rgba(0, 0, 0, 0.8),
+             0 1px 0 rgba(0, 0, 0, 0.8);
+	width: 200px;
+	padding:6px 0 6px 0;
+	border-radius: 2px;
+}
+
+.fermeture{
+
+	background-image: url(../img/croix.png);
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	border: none;
+	background-color: transparent;
+	transition: 0.5s
+}
+
+.fermeture:hover{
+
+	cursor: pointer;
+	background-image: url(../img/croixhover.png);
+
+}
+
+
+.nom_input{
+
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	text-align: center;
+}
+
+.nom_input p{
+
+	width: 80px;
+	color: white;
+	font-family: 'Lobster', cursive;
+}
+
+.controle_minuteur{
+
+	display: flex;
+	justify-content: space-between;
+	width: 200px;
+	margin-top: 8%;
+}
+
+.minuteur #lancer_minuteur, #reset_minuteur{
+
+	padding:6px 0 6px 0;
+	font:Bold 13px Arial;
+	background:#d34836;
+	color:#fff;
+	width:90px;
+	border-radius:2px;
+	border:none;
+	transition: 0.5s;
+}
+
+.minuteur #lancer_minuteur:hover, #reset_minuteur:hover{
+
+	cursor: pointer;
+	background: #7B241C;
+}
+
 .minuteur #heure, #minute, #seconde{
 
-	width: 50px;
-	height: 50px;
-	font-size: 20px;
-	text-align: center;
-	border: none;
+	padding:6px 0 6px 0;
+	font:Bold 13px Arial;
+	background:#d34836;
+	color:#fff;
+	width:80px;
+	height: 40px;
+	border-radius:2px;
+	border:none;
+
 
 }
 
 .minuteur #heure:hover, #minute:hover, #seconde:hover{
 
 	cursor: pointer;
+	background-color: #A93226 ;
 
 }
 
 .minuteur  #heure:focus, #minute:focus, #seconde:focus {
 
   color: white;
-  background-color: #ABB2B9;
+  background-color: #7B241C;
 }
 
 
