@@ -55,12 +55,13 @@ f = function(n) {
     				$('#heure').text(heure-1);
     			}	
     			$('#minute').text(59);
-    			minute=59;
+    			minute=60;
     			heure=heure-1;
     			f(0);
     		}
     		else
-    		{
+    		{	
+    			$("#minuteur_terminee").remove();
     			$("#lancer_minuteur").text("Lancer");
     			$(".minuteur").append("<div id='minuteur_terminee'></div")
     			$("#minuteur_terminee").append("<div></div").hide().fadeIn(500);
@@ -291,6 +292,7 @@ $(document).ready(function(){
 
 		if(boutton != "Stopper")
 		{	
+			$("#minuteur_terminee").remove();
 			heure=$('#heure').text();
 			minute=$('#minute').text();
 			seconde=$('#seconde').text();
