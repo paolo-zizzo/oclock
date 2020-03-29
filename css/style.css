@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
 
+input[type="number"]{
 
-
+	text-align: center;
+}
 .image_minuteur{
 
 	display: flex;
@@ -145,7 +147,7 @@ article{
 }
 
 
-.minuteur_chrono #lancer_minuteur, #reset_minuteur, #lancer_chrono, #reset_chrono, #tour_chrono{
+.minuteur_chrono #lancer_minuteur, #reset_minuteur, #lancer_chrono, #reset_chrono, #tour_chrono, #responsive{
 
 	padding:6px 0 6px 0;
 	font:Bold 13px Arial;
@@ -157,7 +159,7 @@ article{
 	transition: 0.5s;
 }
 
-.minuteur_chrono #lancer_minuteur:hover, #reset_minuteur:hover, #lancer_chrono:hover, #reset_chrono:hover, #tour_chrono:hover{
+.minuteur_chrono #lancer_minuteur:hover, #reset_minuteur:hover, #lancer_chrono:hover, #reset_chrono:hover, #tour_chrono:hover, #responsive:hover{
 
 	cursor: pointer;
 	background: #7B241C;

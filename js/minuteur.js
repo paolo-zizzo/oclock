@@ -4,6 +4,12 @@ var h1=0;
 var m1=0;
 var s1=0;
 
+function maxLengthCheck(object)
+{
+    if (object.value.length > object.maxLength)
+      object.value = object.value.slice(0, object.maxLength)
+
+}
 
 function fermeture(){
 	
@@ -17,14 +23,17 @@ f = function(n) {
 	{
 
     if (n != 0) 
-    {
+    {	
+    	console.log(n)
     	if(n-1 < 10)
     	{
       		$('#seconde').text("0"+(n-1));
+      		$('#seconde').val("0"+(n-1));
       	}
       	else
       	{
       		$('#seconde').text(n-1);
+      		$('#seconde').val(n-1);
       	}
        setTimeout(function(){f(n-1);}, 1000);
     }
@@ -35,12 +44,15 @@ f = function(n) {
     		if(minute-1 < 10)
     		{
     			$('#minute').text("0"+(minute-1));
+    			$('#minute').val("0"+(minute-1));
     		}
     		else
     		{
     			$('#minute').text(minute-1);	
+    			$('#minute').val(minute-1);
     		}
     		$('#seconde').text(59);
+    		$('#seconde').val(59);
     		minute = minute-1;
     		f(60);
     	} 		
@@ -51,12 +63,15 @@ f = function(n) {
     			if(heure-1 < 10)
     			{
     				$('#heure').text("0"+(heure-1));
+    				$('#heure').val("0"+(heure-1));
     			}
     			else
     			{
     				$('#heure').text(heure-1);
+    				$('#heure').val(heure-1);
     			}	
     			$('#minute').text(59);
+    			$('#minute').val(59);
     			minute=60;
     			heure=heure-1;
     			f(0);
@@ -296,13 +311,42 @@ $(document).ready(function(){
 	$("#lancer_minuteur").click(function(){
 
 		var boutton=$("#lancer_minuteur").text();
+		var responsive=$("#responsive").text();
 
+		
 		if(boutton != "Stopper")
 		{	
 			$("#minuteur_terminee").remove();
-			heure=$('#heure').text();
-			minute=$('#minute').text();
-			seconde=$('#seconde').text();
+
+			if(responsive=="J'ai un téléphone")
+			{
+				heure=$('#heure').text()
+				minute=$('#minute').text()
+				seconde=$('#seconde').text()
+			}
+			else
+			{
+				heure=$('#heure').val()
+				minute=$('#minute').val()
+				seconde=$('#seconde').val()
+
+				document.getElementById("heure").disabled = true;
+				document.getElementById("minute").disabled = true;
+				document.getElementById("seconde").disabled = true;
+
+				if(heure < 10 && heure != "00")
+				{
+					heure="0"+(heure)
+				}
+				if(minute < 10 && minute != "00")
+				{
+					minute="0"+(minute)
+				}
+				if(seconde < 10 && seconde != "00")
+				{
+					seconde="0"+(seconde)
+				}
+			}
 
 			if(heure != "00" || minute != "00" || seconde != "00")
 			{
@@ -321,8 +365,45 @@ $(document).ready(function(){
 		heure=$('#heure').text("00");
 		minute=$('#minute').text("00");
 		seconde=$('#seconde').text("00");
+
+		heure=$('#heure').val("00");
+		minute=$('#minute').val("00");
+		seconde=$('#seconde').val("00");
 		h1=0; m1=0; s1=0;
 		f(0);
+	});
+
+	$("#responsive").click(function(){
+
+
+		var responsive=$("#responsive").text();
+
+		if(responsive =="J'ai un téléphone")
+		{
+			$("#heure").remove()
+			$("#minute").remove()
+			$("#seconde").remove()
+
+			$("#affichage_telephone").append("<input id='heure'  oninput='maxLengthCheck(this)'maxlength='2' min='00' max='99' type='number' value='00'>")
+			$("#affichage_telephone").css({"width" : "250px", "display" : "flex", "justify-content" : "space-between"})
+			$("#heure").after("<input id='minute' type='number' oninput='maxLengthCheck(this)'maxlength='2' min='00' max='59' value='00'>")
+			$("#minute").after("<input id='seconde' type='number' oninput='maxLengthCheck(this)'maxlength='2' min='00' max='59' value='00'>")
+
+			$("#responsive").text("J'ai un ordinateur")
+		}
+		else
+		{	
+			$("#heure").remove()
+			$("#minute").remove()
+			$("#seconde").remove()
+
+			$("#affichage_telephone").append("<button id='heure'>00</button>")
+				$("#heure").after("<button id='minute'>00</button>")
+			$("#minute").after("<button id='seconde'>00</button>")
+			$("#responsive").text("J'ai un téléphone")
+		}
+
+
 	});
 	
 });
