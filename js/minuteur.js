@@ -9,6 +9,8 @@ function maxLengthCheck(object)
     if (object.value.length > object.maxLength)
       object.value = object.value.slice(0, object.maxLength)
 
+  	if (object.value > 59 )
+  		object.value=59
 }
 
 function fermeture(){
