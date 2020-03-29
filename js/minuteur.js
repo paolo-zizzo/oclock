@@ -1,3 +1,5 @@
+// ------------------------MINUTEUR-----------------------------
+
 var h1=0;
 var m1=0;
 var s1=0;
@@ -170,9 +172,12 @@ $(document).ready(function(){
 	    			{
 	    				if(x == tab[i])
 	    				{
-	    					$('#minute').text("0"+tab2[i]);
-	    					entree2=tab2[i];
-	    					m=$('#minute').text();
+	    					if(tab2[i] < 6)
+	    					{
+	    						$('#minute').text("0"+tab2[i]);
+	    						entree2=tab2[i];
+	    						m=$('#minute').text();
+	    					}
 	    				}
 	    			}	
     			}
@@ -230,10 +235,12 @@ $(document).ready(function(){
 	    			{
 	    				if(x == tab[i])
 	    				{
-	    				
-	    					$('#seconde').text("0"+tab2[i]);
-	    					entree3=tab2[i];
-	    					s=$('#seconde').text();
+	    					if(tab2[i] < 6)
+	    					{
+	    						$('#seconde').text("0"+tab2[i]);
+	    						entree3=tab2[i];
+	    						s=$('#seconde').text();
+	    					}
 	    				}
 	    			}	
     			}
@@ -317,4 +324,8 @@ $(document).ready(function(){
 		h1=0; m1=0; s1=0;
 		f(0);
 	});
+	
 });
+
+
+

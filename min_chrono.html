@@ -7,34 +7,54 @@
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<!-- MON SCRIPT -->
 		<script type="text/javascript" src="js/minuteur.js"></script>
+		<script type="text/javascript" src="js/chronometre.js"></script>
 	</head>
 <body class="min_chrono">
 	
 
 <main>
-
-<!-- <input id="minuteur" type="time" value="00:00:00" step="1">
-<button id="valider">Valider</button> -->
 <article>
-	<div class="minuteur">
-		<div class="boutton">
-			<div class="nom_input">
-				<p>Heures :</p>
-				<p>Minutes :</p>
-				<p>Secondes :</p>
+	<div class="minuteur_chrono">
+		<div class="image_minuteur" ><img src="img/minuteur.png">Minuteur</div>
+		<div class="minuteur_div">
+			<div class="minuteur">
+				<div class="nom_input">
+					<p>Heures :</p>
+					<p>Minutes :</p>
+					<p>Secondes :</p>
+				</div>
+				<div>
+					<button id="heure">00</button>
+					<button id="minute">00</button>
+					<button id="seconde">00</button>
+				</div>
+				<div class="controle_minuteur">
+					<button id="lancer_minuteur">Lancer</button>
+					<button id="reset_minuteur">Remettre à 0</button>	
+				</div>
 			</div>
+		</div>
+		<div class="chonometre_div">
+			<div class="image_chronometre"><img src="img/chronometre.png">Chronomètre</div>
 			<div>
-				<button id="heure">00</button>
-				<button id="minute">00</button>
-				<button id="seconde">00</button>
+				<button id="minute_chrono">00</button>
+				<button id="seconde_chrono">00</button>
+				<button id="milliseconde_chrono">00</button>
 			</div>
-			<div class="controle_minuteur">
-				<button id="lancer_minuteur">Lancer</button>
-				<button id="reset_minuteur">Remettre à 0</button>	
+			<div class="controle_chonometre">
+					<button id="lancer_chrono">Lancer</button>
+					<button id="tour_chrono">Tour</button>	
+			</div>
+			<div id="temps">
+				<div id="temps_div1">
+
+				</div>
+				<div id="temps_div2">
+					
+				</div>
 			</div>
 		</div>
 	</div>
-
 <article>
 
 </main>
