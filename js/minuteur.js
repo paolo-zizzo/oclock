@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 
 
-	$("button").click(function(){
+	$("body").on("click","button",function(){
 		 
 		var h=h1;
 		var m=m1;
@@ -116,6 +116,7 @@ $(document).ready(function(){
  			var tab2=['0','1','2','3','4','5','6','7','8','9'];
  			var x = event.which || event.keyCode;
  			var name=$(this).attr('id');
+
  			
  			// HEURE
 
