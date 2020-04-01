@@ -1,0 +1,17 @@
+
+
+
+body{background-color: pink;}
+
+#date_heure{
+    color: antiquewhite;
+    padding-top: 10%;
+    padding-left: 5%;
+   font-size: 25px;
+   background-image:url(tableaunoir.jpg);
+   background-repeat: no-repeat;
+   width: 1000px;
+   height: 700px;
+
+
+}
