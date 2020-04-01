@@ -125,8 +125,8 @@ function afficherdateheure(){
                     nbrminute="0"+nbrminute
                 }
 
-                $("#temps_restant").remove()
-                $("#mon_heure"+i).after('<p id="temps_restant">'+nbrheure+":"+nbrminute+'</p>')
+                $("#temps_restant"+i).remove()
+                $("#mon_heure"+i).after('<p id="temps_restant'+i+'">'+nbrheure+":"+nbrminute+'</p>')
             }
             if(alarme[i] == reveil)
             {
