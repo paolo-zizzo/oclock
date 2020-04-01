@@ -1,0 +1,27 @@
+body{background-color: pink;}
+
+.tableaux{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+   	background-image:url(../img/tableaunoir.jpg);
+	background-size:cover; 
+	background-repeat: no-repeat;
+   	width: 805px;
+    height: 430px;
+}
+
+
+#date_heure{
+
+	width: 80%;
+	color: antiquewhite;
+   	font-size: 25px;
+}
+
+#affichage_alarme div{
+
+	display: flex;
+	width: 200px;
+	justify-content: space-between;
+}
