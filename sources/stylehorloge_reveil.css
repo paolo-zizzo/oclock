@@ -1,0 +1,86 @@
+body{background-color: pink;}
+
+*{
+	outline: none;
+}
+
+
+#message_alarme{
+	
+	font-size: 20px;
+}
+
+@media (max-width: 1200px){
+
+	.affichage_tableaux {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+
+.affichage_tableaux {
+
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.tableaux{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+   	background-image:url(../img/tableaunoir.jpg);
+	background-size:cover; 
+   	width: 805px;
+    height: 430px;
+}
+
+
+#date_heure{
+
+	width: 80%;
+	color: antiquewhite;
+   	font-size: 25px;
+}
+
+#affichage_alarme div{
+
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+
+}
+
+
+#affichage_alarme div button, #alarme {
+	border:none;
+	padding:6px 0 6px 0;
+	border-radius:8px;
+	background:#d34836;
+	font:bold 13px Arial;
+	color:#fff;
+	height: 30px;
+	width: 80px;
+	transition: 0.5s
+}
+
+#affichage_alarme div button:hover, #alarme:hover {
+
+	cursor: pointer;
+	background:#69241B;
+}
+
+#nom_alarme{
+
+	padding: 10px;
+}
+
+ #heure_choisie{
+
+ 	padding: 8px
+ }

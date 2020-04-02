@@ -35,16 +35,39 @@ var nbr=0
 $(document).ready(function(){
     $("#alarme").click(function(){
 
-       $("#erreur").remove()
 
         if($("#nom_alarme").val() != "")
         {
             nom_alarme=$("#nom_alarme").val()
             $("#affichage_alarme").append('<div id='+i+'><p id="mon_heure'+i+'">'+$("#heure_choisie").val()+'</p></div>')
-            $("#"+i).append('<p id="finis">'+nom_alarme+'</p>')
+            $("#mon_heure"+i).after('<button class="supprimer_alarme" id='+i+'>Supprimer</button>')
             alarme.push($("#heure_choisie").val());
+            $("#nom_alarme").val("")
+            $("#heure_choisie").val("00:00")
             i++;
         }     
+    });
+
+    $("body").on("click",".supprimer_alarme",function(){
+
+        id=$(this).attr('id')
+        $("#"+id).remove()
+        delete alarme[id];
+        $("#message_alarme").text("")
+        $(".div_message").css({"display":"none"})
+
+    });
+
+     $("body").on("click",".div_message",function(){
+
+        $("#message_alarme").text("")
+        $(".div_message").css({"display":"none"})
+    });
+
+     $("body").on("mouseover",".div_message",function(){
+
+        
+        $(".div_message").css({"cursor":"pointer"})
     });
 });
 
@@ -93,50 +116,88 @@ function afficherdateheure(){
     var reveil = heure + ":" + minutes
 
 
-    if(alarme.length != 0)
+    if(alarme.length > 0) 
     {
+        if(alarme[alarme.length-1] == reveil)
+        {
+
+            console.log("ok")
+        }
         for(i=0; i< alarme.length; i++)
         {   
-            if(alarme[i] < reveil)
+
+            if(alarme[i] != reveil && alarme[i] != undefined)
             {
-                $("#alarme").after('<p id="erreur">Heure inccorect !</p>')
-                delete alarme[i];
-            }
-            else
-            {
-                nbrheure=parseInt(alarme[i].substr(0,2)) - parseInt(reveil.substr(0,2))
-                if(parseInt(alarme[i].substr(3,2)) >= parseInt(reveil.substr(3,2)))
+                if(parseInt(reveil.substr(0,2)) > parseInt(alarme[i].substr(0,2)))
                 {
-                    nbrminute= parseInt(alarme[i].substr(3,2))-parseInt(reveil.substr(3,2))
+                    nbrheure=parseInt(reveil.substr(0,2)) - parseInt(alarme[i].substr(0,2))
+                    nbrheure=24-nbrheure
+
+                    if(parseInt(reveil.substr(3,2)) == parseInt(alarme[i].substr(3,2)))
+                    {
+                        nbrminute=0
+                    }
+                    else if(parseInt(reveil.substr(3,2)) > parseInt(alarme[i].substr(3,2)))
+                    {
+                        nbr = parseInt(reveil.substr(3,2))-parseInt(alarme[i].substr(3,2))
+                        nbrminute= 60 - nbr
+                        nbrheure=nbrheure - 1
+                    }
+                    else
+                    {
+                        nbr = parseInt(alarme[i].substr(3,2))-parseInt(reveil.substr(3,2))
+                        nbrminute= 0 + nbr
+                    }
+                }
+                else if(parseInt(reveil.substr(0,2)) == parseInt(alarme[i].substr(0,2))
+                    &&parseInt(reveil.substr(3,2)) > parseInt(alarme[i].substr(3,2)))
+                {
+                    nbr = parseInt(reveil.substr(3,2))-parseInt(alarme[i].substr(3,2))
+                    nbrminute= 60 - nbr
+                    nbrheure=23
                 }
                 else
                 {
-                    nbr= parseInt(reveil.substr(3,2))-parseInt(alarme[i].substr(3,2))
-                    nbrheure=nbrheure-1
-                    nbrminute=60-nbr
+                    nbrheure=parseInt(alarme[i].substr(0,2)) - parseInt(reveil.substr(0,2))
+                    if(parseInt(alarme[i].substr(3,2)) == parseInt(reveil.substr(3,2)))
+                    {
+                        nbrminute=parseInt(alarme[i].substr(3,2))
+                    }
+                    else if(parseInt(alarme[i].substr(3,2)) > parseInt(reveil.substr(3,2)))
+                    {
+                        nbrminute= parseInt(alarme[i].substr(3,2))-parseInt(reveil.substr(3,2))
+                    }
+                    else
+                    {
+                        nbr= parseInt(reveil.substr(3,2))-parseInt(alarme[i].substr(3,2))
+                        nbrheure=nbrheure-1
+                        nbrminute=60-nbr
+                    }     
                 }
-
-                if(nbrheure < 10)
-                {
-                    nbrheure="0"+nbrheure
-                }
-                 if(nbrminute < 10)
-                {
-                    nbrminute="0"+nbrminute
-                }
+                    if(nbrheure < 10)
+                    {
+                        nbrheure="0"+nbrheure
+                    }
+                     if(nbrminute < 10)
+                    {
+                        nbrminute="0"+nbrminute
+                    }
 
                 $("#temps_restant"+i).remove()
-                $("#mon_heure"+i).after('<p id="temps_restant'+i+'">'+nbrheure+":"+nbrminute+'</p>')
-            }
-            
-            if(alarme[i] == reveil)
+                $("#mon_heure"+i).after('<p id="temps_restant'+i+'">Dans : ' +nbrheure+":"+nbrminute+'</p>')
+            }      
+            else if(alarme[i] == reveil)
             {
-               $("#temps_restant").text("Passé !")
-               delete alarme[i];
+                $("#message_alarme").text("")
+                $("#temps_restant"+i).text("Passée !")
+                $(".div_message").css({"display":"flex","align-items":"center","justify-content":"center","width":"300px",
+                    "background-color":"pink","position":"absolute","margin-top":"5%","border-radius":"10px","word-break":"break-word"})
+               
+                $("#message_alarme").text(nom_alarme)
+                delete alarme[i];
             }
         }
-    }
-  
+    } 
 }
 
 

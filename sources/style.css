@@ -1,27 +1,241 @@
-body{background-color: pink;}
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
 
-.tableaux{
+input[type="number"]{
+
+	text-align: center;
+}
+
+
+
+@media (min-width: 1000px) {
+  #responsive{
+
+	position: absolute;
+	}
+}
+
+@media (max-width: 600px) {
+.minuteur_chrono{
+
+	margin-top: 5%;
+	}
+}
+
+.image_minuteur{
+
 	display: flex;
 	justify-content: center;
-	align-items: center;
-   	background-image:url(../img/tableaunoir.jpg);
-	background-size:cover; 
-	background-repeat: no-repeat;
-   	width: 805px;
-    height: 430px;
+	margin-top: 20%;
+	color: white;
+	text-shadow: black 0.1em 0.1em 0.2em
 }
 
+.image_minuteur img{
 
-#date_heure{
-
-	width: 80%;
-	color: antiquewhite;
-   	font-size: 25px;
+	width: 20px;
 }
 
-#affichage_alarme div{
+.image_chronometre{
 
 	display: flex;
-	width: 200px;
-	justify-content: space-between;
+	justify-content: center;
+	margin-bottom: 5%;
+	color: white; 
+	text-shadow: black 0.1em 0.1em 0.2em
 }
+
+.image_chronometre img{
+
+	width: 20px;
+}
+
+.min_chrono{
+
+ background-image: url(../img/fond_chambre.png);
+ background-size: cover;
+ background-attachment: fixed;
+}
+
+*{
+	outline: none;
+}
+
+
+article{
+
+	display: flex;
+	justify-content: center;
+}
+
+
+
+.minuteur_chrono{
+
+	width: 400px;
+	border-radius: 30px; 
+	height: 700px;
+	background-image: url(../img/telephone.png);
+	background-size:cover;
+	background-position: center center;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+
+
+}
+
+.minuteur_chrono .minuteur{
+
+	display:flex;
+	flex-direction: column;
+	height: 100px;
+	align-items: center;
+}
+
+#minuteur_terminee{
+
+	margin-top: 8%;
+	background-color: #CD6155;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 20px;
+	font-size: 15px;
+	font-family: 'Lobster', cursive;
+	text-shadow: -1px 0 0 rgba(0, 0, 0, 0.8), 
+             1px 0 0 rgba(0, 0, 0, 0.8),
+             0 -1px 0 rgba(0, 0, 0, 0.8),
+             0 1px 0 rgba(0, 0, 0, 0.8);
+	width: 200px;
+	padding:6px 0 6px 0;
+	border-radius: 2px;
+}
+
+.fermeture{
+
+	background-image: url(../img/croix.png);
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	border: none;
+	background-color: transparent;
+	transition: 0.5s
+}
+
+.fermeture:hover{
+
+	cursor: pointer;
+	background-image: url(../img/croixhover.png);
+
+}
+
+
+.nom_input{
+
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	text-align: center;
+	font-size: 15px;
+}
+
+.nom_input p{
+
+	width: 80px;
+	color: white;
+	font-family: 'Lobster', cursive;
+}
+
+.controle_minuteur{
+
+	display: flex;
+	justify-content: space-between;
+	width: 200px;
+	margin-top: 8%;
+}
+
+.controle_chonometre{
+
+	display: flex;
+	justify-content: space-between;
+	width: 300px;
+	margin-top: 8%;
+}
+
+
+.minuteur_chrono #lancer_minuteur, #reset_minuteur, #lancer_chrono, #reset_chrono, #tour_chrono, #responsive{
+
+	padding:6px 0 6px 0;
+	font:Bold 13px Arial;
+	background:#d34836;
+	color:#fff;
+	width:90px;
+	border-radius:2px;
+	border:none;
+	transition: 0.5s;
+}
+
+.minuteur_chrono #lancer_minuteur:hover, #reset_minuteur:hover, #lancer_chrono:hover, #reset_chrono:hover, #tour_chrono:hover, #responsive:hover{
+
+	cursor: pointer;
+	background: #7B241C;
+}
+
+.minuteur_chrono #heure, #minute, #seconde, #minute_chrono, #seconde_chrono, #milliseconde_chrono{
+
+	padding:6px 0 6px 0;
+	font:Bold 13px Arial;
+	background:#d34836;
+	color:#fff;
+	width:80px;
+	height: 40px;
+	border-radius:2px;
+	border:none;
+
+
+}
+
+.minuteur_chrono #heure:hover, #minute:hover, #seconde:hover{
+
+	cursor: pointer;
+	background-color: #A93226 ;
+
+}
+
+.minuteur_chrono  #heure:focus, #minute:focus, #seconde:focus{
+
+  color: white;
+  background-color: #7B241C;
+}
+
+
+.chonometre_div{
+
+	margin-top: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#temps{
+
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	color: white;
+}
+
+#temps p{
+
+	margin-top: -10px;
+	height: 15px;
+}
+
+
+.chonometre_div h1{
+	color: white;
+}
+
+
+

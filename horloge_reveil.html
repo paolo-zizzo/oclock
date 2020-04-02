@@ -3,7 +3,7 @@
 <head>
 	<title> date et heure</title>
 	<meta charset="utf-8">
-	<link href="sources/style.css" rel="stylesheet">
+	<link href="sources/stylehorloge_reveil.css" rel="stylesheet">
 
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/horloge_reveil.js"></script>
@@ -14,19 +14,18 @@
 <body  onload= "Affichersecondes()">
 
 <main>
-<article class="tableaux">
-    <div id="date_heure"></div>
-</article>
-
-<article id="mon_alarme">
-    <input id="heure_choisie" type="time">
-    <input id="nom_alarme" required type="text">
-    <button id="alarme">Ajouter</button>
-
-    <div id="affichage_alarme"></div>
-
-</article>
-
+	<section class="affichage_tableaux">
+		<article class="tableaux">
+			<div class="div_message"><p id="message_alarme"></p></div>
+		    <div id="date_heure"></div>
+		</article>
+		<article id="mon_alarme">
+	    	<input id="heure_choisie" type="time" value="00:00">
+	    	<input id="nom_alarme" required type="text" placeholder="Nom de l'alarme">
+	    	<button id="alarme">Ajouter</button>
+	    	<div id="affichage_alarme"></div>
+		</article>
+	</section>
 </main>
 
 </body>
